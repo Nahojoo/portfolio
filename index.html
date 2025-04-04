@@ -3,9 +3,320 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Portfolio</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nahojoo.github.io/portfolio/" />
+    <meta property="og:title" content="포트폴리오" />
+    <meta property="og:description" content="나호주 Portfolio 입니다." />
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="shortcut icon" href="/src/assets/icons/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    
   </head>
   <body>
-    <div>hello world!</div>
+    <div class="wrap">
+      <!-- HEADER -->
+      <header class="header">
+        <h1 class="logo">portfolio</h1>
+        <nav class="nav">
+          <a href="#profile">Profile</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">contact</a>
+        </nav>
+      </header>
+      <!-- CONTAINER -->
+      <div id="container">
+        <!-- INTRO -->
+        <section class="intro-section flex-center">
+          <h2 class="intro-section__title">
+            안녕하세요 </br>
+            <span class="intro-section__typing"></span>
+          </br>나호주입니다.
+          </h2>
+          <a
+            href="https://github.com/Nahojoo/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-github"
+            >github 바로가기</a
+          >
+          <button class="btn-scrolldown">scroll down</button>
+        </section>
+        <!-- PROFILE -->
+        <section id="profile" class="profile-section">
+          <h2>PROFILE</h2>
+          <div class="profile-section__inner">
+            <aside class="profile-section__side">
+              <ul class="side-list">
+                <li class="side-item active">About Me</li>
+                <li class="side-item">Work Experience</li>
+                <li class="side-item">Skills</li>
+                <li class="side-item">Education</li>
+                <li class="side-item">Certificate</li>
+              </ul>
+            </aside>
+            <div class="profile-section__content">
+              <div class="profile-section__block">
+                <h3>About Me</h3>
+                <ul class="about">
+                  <li class="about-item">
+                    <p class="about-item__desc">
+                      반응형 및 웹 접근성을 고려한 시멘틱 마크업 작성과 가독성 좋은
+                      스타일링 작성을 지향합니다. 서비스 기획 및 UI/UX
+                      디자인 경험을 통해 전반적인 웹/앱 애플리케이션 개발
+                      프로세스를 이해하고 있습니다.
+                    </p>
+                    <div class="summary-block">
+                      <h4 class="summary-block__title">핵심 역량</h4>
+                      <button class="summary-block__btn">보기</button>
+                      <div class="summary-block__box active">
+                        <strong>
+                          -디자인 시안을 정확하게 구현하는 마크업 및 스타일링
+                        </strong>
+                        <strong>
+                          -공공기관 시스템 개발 프로젝트에서 웹
+                          퍼블리싱 실무 경험
+                        </strong>
+                        <ol class="box__list">
+                          <li class="box__item">
+                            1. Vue3, Vuetify, Qausar 환경에서의 작업 경험
+                          </li>
+                          <li class="box__item">
+                            2. Git 협업 툴을 사용한 팀 프로젝트 참여
+                          </li>
+                          <li class="box__item">
+                            3. 웹/앱 서비스 기획 참여
+                          </li>
+                          <li class="box__item">
+                            4. 피그마를 사용한 UI/UX 디자인 제작
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="profile-section__block">
+                <h3>Work Experience</h3>
+                <ul class="about">
+                  <li>
+                    <strong class="about-item__title">| (주) 클루드인 </strong>
+                    <span class="about-item__badge">서비스기획부, 사원</span>
+                    <span class="about-item__date"
+                      >2023. 04 ~ 2024. 11 (1년 8개월)</span
+                    >
+                    <p class="about-item__desc">
+                      웹디자인, 웹퍼블리싱, 기획 업무 참여
+                    </p>
+                  </li>
+                  <li>
+                    <strong class="about-item__title">| 알케미랩 </strong>
+                    <span class="about-item__badge">개발기획실, 인턴</span>
+                    <span class="about-item__date"
+                      >2022. 11 ~ 2023. 02 (4개월)</span
+                    >
+                    <p class="about-item__desc">웹디자인 및 웹퍼블리싱</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="profile-section__block">
+                <h3>Skills</h3>
+                <ul class="about">
+                  <li>
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_html.svg"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_css.png"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_sass.svg"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_js.svg"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_figma.svg"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_ill.svg"
+                      alt=""
+                    />
+                    <img
+                      class="about-item__icon"
+                      src="./src/assets/icons/ico_psd.png"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div class="profile-section__block">
+                <h3>Education</h3>
+                <ul class="about">
+                  <li>
+                    | 하이미디어 UI/UX 웹 디자인&웹퍼블리셔 교육 수료
+                    <span class="about-item__date">2022.03~08</span>
+                  </li>
+                  <li>
+                    | 인하대학교 사학과 전공, 중국학과 복수전공
+                    <span class="about-item__date">2016.02~2021.02</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="profile-section__block">
+                <h3>Certificate</h3>
+                <ul class="about">
+                  <li>
+                    | 웹디자인기능사
+                    <span class="about-item__date">2022. 09 </span>
+                  </li>
+                  <li>
+                    | 컴퓨터활용능력 1급
+                    <span class="about-item__date">2021. 10 </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- PEOJECTS -->
+        <section id="projects" class="projects-section">
+          <div class="projects-section__inner">
+            <h2 class="projects-section__title">Projects</h2>
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="project">
+                    <h3 class="project-item__title">
+                      <span class="project-item__badge">개인</span>포트폴리오
+                      리뉴얼
+                    </h3>
+                    <span class="project-item__date">2025.03~04</span>
+                    <ul class="project-item__desc">
+                      <li>
+                        <ul class="list">
+                          <li>
+                           설명1
+                          </li>
+                          <li>
+                            설명2
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="project">
+                    <h3 class="project-item__title">
+                      <span class="project-item__badge">개인</span>준비
+                    </h3>
+                    <span class="project-item__date">2025.00.00</span>
+                    <ul class="project-item__desc">
+                      <li>
+                        <ul class="list">
+                          <li>
+                            설명란
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="project">
+                    <h3 class="project-item__title">
+                      <span class="project-item__badge">개인</span>준비중
+                    </h3>
+                    <span class="project-item__date">2025.00.00</span>
+                    <ul class="project-item__desc">
+                      <li>
+                        <ul class="list">
+                          <li>설명란</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- scrollbar -->
+              <div class="swiper-scrollbar projects-scrollbar"></div>
+            </div>
+            <!-- prev,next button -->
+            <div class="swiper-button-next projects-btns"></div>
+            <div class="swiper-button-prev projects-btns"></div>
+          </div>
+        </section>
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+          <div class="contact-section__inner">
+            <div class="contact-section__loader">
+              <div class="loader"></div>
+            </div>
+            <p class="contact-section__desc">
+              좋은 팀에서, 함께 고민하고 성장하는 동료가 되고 싶습니다.
+            </p>
+            <div class="contact-section__mail custom-cursor-area">
+              <a href="mailto:ghwn0806@naver.com">ghwn0806@naver.com</a>
+              <div class="custom-cursor flex-center">Click!</div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- TOP-BUTTON -->
+      <button class="top-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M13 20h-2V8l-5.5 5.5l-1.42-1.42L12 4.16l7.92 7.92l-1.42 1.42L13 8z"
+          />
+        </svg>
+      </button>
+      <!-- FOOTER -->
+      <footer class="flex-center">
+        <p>&copy; 2025 나호주 <br />All Rights Reserved.</p>
+      </footer>
+    </div>
+    <!-- cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- script -->
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>
