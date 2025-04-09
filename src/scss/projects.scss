@@ -6,8 +6,7 @@ $white: #ffffff;
 $gray100: #f9f9f9;
 $gray200: #f2f2f2;
 $gray300: #57575c;
-$gray400: #57575c;
-$gray500: #2b2b2b;
+$gray400: #2b2b2b;
 $black: #000000;
 $line200: #d2d2d2;
 $line100: #f2f2f2;
@@ -26,7 +25,6 @@ $text100: #ffffff;
   --gray200: #{$gray200};
   --gray300: #{$gray300};
   --gray400: #{$gray400};
-  --gray500: #{$gray500};
   --black: #{$black};
   --line200: #{$line200};
   --line100: #{$line100};
@@ -34,6 +32,8 @@ $text100: #ffffff;
   --text300: #{$text300};
   --text200: #{$text200};
   --text100: #{$text100};
+  //icon
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d2d2d2' d='M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z'/%3E%3C/svg%3E");
 }
 html {
   font-size: 62.5%;
@@ -92,9 +92,9 @@ button {
   }
   .logo > a {
     display: inline-block;
-    width: 80px;
-    height: 21.5px;
-    //background-color: rgb(188, 188, 188);
+    color: var(--white);
+    font-size: 2.2rem;
+    font-weight: 600;
   }
   // 지앤비
   .gnb-wrapper {
@@ -163,7 +163,14 @@ button {
     padding: 2rem 2.6rem;
     height: 270px;
   }
-  &.open {
+  &:hover {
+    background-color: var(--white);
+    .logo > a {
+      color: var(--black);
+    }
+    .gnb-depth1 > a {
+      color: var(--gray400);
+    }
     .gnb-depth2-wrap {
       display: block;
     }
@@ -171,14 +178,32 @@ button {
       display: block;
     }
   }
+  &.scrolled {
+    background-color: var(--white);
+    transition: background-color 0.2s;
+    .gnb-depth1 > a {
+      color: var(--gray400);
+    }
+    .logo > a {
+      color: var(--gray400);
+    }
+  }
   //헤더 버튼
   .header-right {
     display: flex;
     gap: 1rem;
     .btn {
+      display: flex;
       height: 2.5rem;
       line-height: 2.5rem;
       font-size: 1.2rem;
+    }
+    .icon {
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 0.5rem;
     }
   }
 }
@@ -192,6 +217,7 @@ button {
   position: fixed;
   left: 2.5rem;
   top: calc(50% - 2.5rem);
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -523,10 +549,14 @@ footer {
     &__site {
       text-align: right;
       select {
+        -o-appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         height: 3rem;
         padding: 0 2.8rem 0 1rem;
         border: 1px solid var(--line200);
-        background-position: right 1rem center;
+        background: var(--svg) no-repeat right 0.5rem center / auto 20px;
         font-size: 1.2rem;
       }
       button {
