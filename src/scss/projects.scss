@@ -3,6 +3,7 @@ $header-h: 64px;
 $max-width: 1560px;
 $img-path: "/src/assets/imgs/";
 $white: #ffffff;
+$beige: #f8f1e8;
 $gray100: #f9f9f9;
 $gray200: #f2f2f2;
 $gray300: #57575c;
@@ -21,6 +22,7 @@ $text100: #ffffff;
   --max-width: #{$max-width};
   --header-h: #{$header-h};
   --white: #{$white};
+  --beige: #{$beige};
   --gray100: #{$gray100};
   --gray200: #{$gray200};
   --gray300: #{$gray300};
@@ -81,7 +83,7 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 990;
   background-color: var(--black);
   &-inner {
     display: flex;
@@ -207,47 +209,7 @@ button {
     }
   }
 }
-//메인 페이지 fixed 버튼
-.main-fixed-btn {
-  width: 5rem;
-  height: 5rem;
-  background-color: var(--gray200);
-  border-radius: 100%;
-  cursor: pointer;
-  position: fixed;
-  left: 2.5rem;
-  top: calc(50% - 2.5rem);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &.menu {
-    left: auto;
-    right: 2.5rem;
-    span {
-      width: 3rem;
-      height: 0.15rem;
-      display: block;
-      background-color: var(--text300);
-      position: relative;
-      &::before,
-      &::after {
-        content: "";
-        display: inline-block;
-        width: 100%;
-        height: 0.15rem;
-        background-color: var(--text300);
-        position: absolute;
-        top: -0.8rem;
-        left: 0;
-      }
-      &::after {
-        top: auto;
-        bottom: -0.8rem;
-      }
-    }
-  }
-}
+
 //intro
 .intro-section {
   top: 0;
@@ -563,6 +525,241 @@ footer {
         font-size: 1.2rem;
         height: 3rem;
         margin-left: 1rem;
+      }
+    }
+  }
+}
+
+//메인 페이지 fixed 버튼 (공통)
+.main-fixed-btn {
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--gray200);
+  border-radius: 100%;
+  cursor: pointer;
+  position: fixed;
+  left: 2.5rem;
+  top: calc(50% - 2.5rem);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+//옵션 세팅 버튼
+.setting-btn.active {
+  background-color: #d2d2d2;
+}
+//햄버거 버튼
+.menu-btn {
+  left: auto;
+  right: 2.5rem;
+  span {
+    width: 3rem;
+    height: 0.15rem;
+    display: block;
+    background-color: var(--text300);
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 0.15rem;
+      background-color: var(--text300);
+      position: absolute;
+      top: -0.8rem;
+      left: 0;
+    }
+    &::after {
+      top: auto;
+      bottom: -0.8rem;
+    }
+  }
+}
+// 옵션 세팅
+.ui-setting__overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  //visibility: hidden;
+  transition: opacity 0.3s ease 0.15s;
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    //visibility: visible;
+    transition: opacity 0.3s ease;
+    .ui-setting {
+      transform: translateX(0);
+    }
+  }
+  .ui-setting {
+    background-color: rgb(255, 255, 255);
+    width: 36%;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding: 3rem 2.5rem 2.5rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    &__msg {
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--line100);
+      text-align: center;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+      word-break: keep-all;
+    }
+    &__desc {
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      padding: 3rem 0 2rem 0;
+    }
+    &__keywords {
+      padding-top: 2rem;
+      border-top: 1px solid var(--line100);
+      p {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+      }
+      .keyword-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .keyword-item > a {
+        height: 2.8rem;
+        line-height: 2.8rem;
+        padding: 0 1.2rem;
+        font-size: 1.4rem;
+        color: var(--text300);
+        border-radius: 1.4rem;
+        border: 1px solid var(--gray300);
+        background-color: var(--white);
+      }
+    }
+  }
+  .setting-list {
+    flex-grow: 1;
+  }
+  .setting-item {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 2rem;
+    align-items: center;
+    gap: 1rem;
+    > strong {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+    }
+    > .option-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+    button {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      &.active {
+        &::after {
+          display: inline-block;
+        }
+      }
+      &::after {
+        content: "";
+        display: none;
+        width: calc(100% + 1rem);
+        height: calc(100% + 1rem);
+        border: 0.25rem solid var(--gray400);
+        border-radius: 100%;
+        position: absolute;
+        box-sizing: border-box;
+      }
+      &.black {
+        background-color: var(--black);
+      }
+      &.dark-gray {
+        background-color: var(--gray300);
+      }
+      &.gray {
+        background-color: #e1e1e1;
+      }
+      &.beige {
+        background-color: var(--beige);
+      }
+      &.white {
+        background-color: var(--white);
+        border: 1px solid var(--line200);
+      }
+      &.font {
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2357575c' d='M2 4v3h5v12h3V7h5V4zm19 5h-9v3h3v7h3v-7h3z'/%3E%3C/svg%3E")
+          no-repeat center / auto 14px;
+      }
+      &.font.md {
+        background-size: auto 18px;
+      }
+      &.font.lg {
+        background-size: auto 24px;
+      }
+
+      //추천 옵션
+      &.recommend {
+        width: fit-content;
+        height: 2.8rem;
+        border-radius: 1.4rem;
+        font-size: 1.4rem;
+        padding: 0 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a5a5aa;
+        &::before {
+          content: "";
+          width: 1.4rem;
+          height: 1.4rem;
+          border-radius: 100%;
+          display: block;
+          margin-right: 0.3rem;
+          background-color: #a5a5aa;
+        }
+        &::after {
+          border-radius: 1.4rem;
+        }
+      }
+      &.recommend.dark-mode {
+        background-color: var(--black);
+        color: var(--white);
+        &::before {
+          background-color: var(--white);
+        }
+      }
+      &.recommend.eco-mode {
+        color: #1878f0;
+        &::before {
+          background-color: #1878f0;
+        }
+      }
+      &.recommend.contrast-mode {
+        color: var(--black);
+        &::before {
+          background-color: var(--black);
+        }
       }
     }
   }

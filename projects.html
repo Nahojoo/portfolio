@@ -391,10 +391,11 @@
             </div>
           </section>
         </div>
+        <!-- 옵션 버튼-->
         <button
-          class="main-fixed-btn"
+          class="main-fixed-btn setting-btn"
           type="button"
-          class="main-btn"
+          id="settingToggleBtn"
           aria-label="사용자설정열기"
         >
           <svg
@@ -415,15 +416,15 @@
           </svg>
           <span class="screen-hidden">사용자설정열기</span>
         </button>
+
+        <!-- 사이트맵 -->
         <button
-          class="main-fixed-btn menu"
+          class="main-fixed-btn menu-btn"
           type="button"
           class="main-btn"
           aria-label="사이트맵열기"
         >
-          <span>
-            <span class="screen-hidden">사이트맵메뉴열기</span>
-          </span>
+          <span></span>
         </button>
       </main>
       <!-- FOOTER -->
@@ -499,7 +500,9 @@
                 <button class="policy" type="button">개인정보처리방침</button>
               </div>
             </div>
-            <div class="copyright">&copy;레이아웃 클론 코딩</div>
+            <div class="copyright">
+              해당 페이지는 퍼블리싱 연습을 위해 클론 코딩했습니다.
+            </div>
             <div class="footer-bottom__right">
               <ul class="footer-bottom__imgs">
                 <li class="footer-bottom__img">
@@ -540,6 +543,120 @@
           </div>
         </div>
       </footer>
+      <!-- 오버레이-->
+      <div class="ui-setting__overlay" aria-hidden="true">
+        <div class="ui-setting">
+          <div class="ui-setting__msg">안녕하세요</div>
+          <p class="ui-setting__desc">
+            아래 옵션을 조정하여 오늘 나에게 꼭 맞는 탐색 환경을 만들어보세요.
+          </p>
+          <ul class="setting-list">
+            <li class="setting-item">
+              <strong>배경 색상</strong>
+              <ul class="option-btns">
+                <li>
+                  <button aria-label="" type="button" class="black">
+                    <span class="screen-hidden">검정</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="dark-gray">
+                    <span class="screen-hidden">진한회색</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="gray">
+                    <span class="screen-hidden">옅은회색</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="beige">
+                    <span class="screen-hidden">베이지</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="white active">
+                    <span class="screen-hidden">흰색</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li class="setting-item">
+              <strong>글자 크기</strong>
+              <ul class="option-btns">
+                <li>
+                  <button aria-label="" type="button" class="font">
+                    <span class="screen-hidden">작게</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="active font md">
+                    <span class="screen-hidden">보통</span>
+                  </button>
+                </li>
+                <li>
+                  <button aria-label="" type="button" class="font lg">
+                    <span class="screen-hidden">크게</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li class="setting-item">
+              <strong>추천 옵션</strong>
+              <ul class="option-btns">
+                <li>
+                  <button
+                    aria-label=""
+                    type="button"
+                    class="recommend active default"
+                  >
+                    <span>기본</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label=""
+                    type="button"
+                    class="recommend dark-mode"
+                  >
+                    <span>다크모드</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label=""
+                    type="button"
+                    class="recommend eco-mode"
+                  >
+                    <span>에코모드</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-label=""
+                    type="button"
+                    class="recommend contrast-mode"
+                  >
+                    <span>고대비모드</span>
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="ui-setting__keywords">
+            <p>
+              최근 방문자가 가장 많이 검색한 키워드입니다. 클릭하면 해당
+              검색어로 이동합니다.
+            </p>
+            <ul class="keyword-list">
+              <li class="keyword-item"><a href="#">키워드1</a></li>
+              <li class="keyword-item"><a href="#">키워드2</a></li>
+              <li class="keyword-item"><a href="#">키워드3</a></li>
+              <li class="keyword-item"><a href="#">키워드4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- cdn -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -555,6 +672,24 @@
           header.classList.add("scrolled");
         } else {
           header.classList.remove("scrolled");
+        }
+      });
+
+      <!-- 옵션 설정 -->
+      const settingToggleBtn = document.getElementById("settingToggleBtn");
+      const settingOverlay = document.querySelector(".ui-setting__overlay");
+
+      settingToggleBtn.addEventListener("click", () => {
+        settingToggleBtn.classList.toggle("active");
+        settingOverlay.classList.toggle("open");
+        settingOverlay.setAttribute("aria-hidden", "false");
+      });
+
+      settingOverlay.addEventListener("click", (e) => {
+        if (e.target === settingOverlay) {
+          settingToggleBtn.classList.remove("active");
+          settingOverlay.classList.remove("open");
+          settingOverlay.setAttribute("aria-hidden", "true");
         }
       });
     </script>
